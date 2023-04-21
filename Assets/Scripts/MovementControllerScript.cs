@@ -12,7 +12,7 @@ public class MovementControllerScript : MonoBehaviour
 	[SerializeField] float rotateSpeed = 1.0f;
 	[SerializeField] private Vector3 TurnSpeed;
 
-	private int currentTargetPos;
+	public int currentTargetPos;
 
     private List<Transform> WayPoints;
 	public ButtonManager buttonManager;
@@ -42,8 +42,10 @@ public class MovementControllerScript : MonoBehaviour
 		WayPoints.Add(GameObject.Find("WayPoint9").transform);
 		WayPoints.Add(GameObject.Find("WayPoint10").transform);
 		WayPoints.Add(GameObject.Find("WayPoint11").transform);
+        WayPoints.Add(GameObject.Find("WayPoint12").transform);
+        WayPoints.Add(GameObject.Find("WayPoint13").transform);
 
-		currentTargetPos = 0;
+        currentTargetPos = 0;
         
 
         GameObject UIController = GameObject.Find("UI_Checklist");
@@ -53,8 +55,12 @@ public class MovementControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateTurning();
-        
+        //updateTurning();
+        if(!experienceDone)
+        {
+            playerTransform.position = Vector3.MoveTowards(playerTransform.position, WayPoints[currentTargetPos].position, movementSpeed * Time.deltaTime);
+        }
+
         updateWheelRotate();
         
 		updateTargetPosition();
@@ -62,6 +68,7 @@ public class MovementControllerScript : MonoBehaviour
 
     void updateTurning()
     {
+        
         if(playerTransform.position == WayPoints[0].position)
         {
 			//playerTransform.rotation = WayPoints[currentTargetPos].rotation;
@@ -105,7 +112,8 @@ public class MovementControllerScript : MonoBehaviour
     {
         if (playerTransform.position == WayPoints[currentTargetPos].position)
         {
-            if (fulfilledTest)
+            currentTargetPos++;
+            /*if (fulfilledTest)
             {
                 if (currentTargetPos < WayPoints.Count - 1)
                 {
@@ -121,10 +129,10 @@ public class MovementControllerScript : MonoBehaviour
                     myUIController.showObjectives();
                     myUIController.ongoingTest = true;
                 }
-            }
+            }*/
         }
 
-        if (playerTransform.position == WayPoints[12].position)
+        if (playerTransform.position == WayPoints[11].position)
         {
             experienceDone = true;
         }

@@ -10,10 +10,33 @@ public class CameraRotations : MonoBehaviour
 
     [SerializeField] private Transform playerTransform;
 
+    [SerializeField] private Transform cameraWalkingPos;
+    [SerializeField] private Transform cameraRidingPos;
+    private Transform currentCameraPos;
+
+    private int cameraMovementSpeed = 3;
+
     // Start is called before the first frame update
     void Start()
     {
+        currentCameraPos = cameraWalkingPos;
+    }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown("space"))
+        {
+            if(currentCameraPos.position == cameraWalkingPos.position)
+            {
+                currentCameraPos = cameraRidingPos;
+            }
+            else
+            {
+                currentCameraPos = cameraWalkingPos;
+            }
+        }
+
+        myCamera.transform.position = Vector3.MoveTowards(myCamera.transform.position, currentCameraPos.position, cameraMovementSpeed * Time.deltaTime);
     }
 
     // Update is called once per frame

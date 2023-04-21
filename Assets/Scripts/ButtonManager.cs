@@ -61,17 +61,17 @@ public class ButtonManager : MonoBehaviour
 		helmet = hel.GetComponent<Animation>();
 		
 
-		lastWayPoint = GameObject.Find("WayPoint8").transform;
+		lastWayPoint = GameObject.Find("WayPoint13").transform;
 		WayPtOne = GameObject.Find("WayPoint2").transform;
 
 		GameObject UIController = GameObject.Find("UI_Checklist");
         myUIController = UIController.GetComponent<UITaskController>();
-    }
+	}
 
     // Update is called once per frame
     void Update()
     {
-		beginHalo();
+		//beginHalo();
 		
 		if (playerTransform.position == lastWayPoint.position)
         {
@@ -85,10 +85,9 @@ public class ButtonManager : MonoBehaviour
 
     public void startExperience()
     {
-        welcomeElements.SetActive(false);
+		welcomeElements.SetActive(false);
         Time.timeScale = 1f;
-       
-    }
+	}
 
     public void endExperience()
     {
