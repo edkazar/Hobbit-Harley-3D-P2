@@ -44848,7 +44848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 667736809716571770, guid: 47aaa6507f0e0c740a3e318ce14d3b9c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 667736809975871705, guid: 47aaa6507f0e0c740a3e318ce14d3b9c, type: 3}
       propertyPath: myPos
@@ -46790,7 +46790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 436944, guid: 7d7f11538dd256d46a77ffe5d9a82a2b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -136.63
+      value: -137.23
       objectReference: {fileID: 0}
     - target: {fileID: 436944, guid: 7d7f11538dd256d46a77ffe5d9a82a2b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -80485,7 +80485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1997890628
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -87167,7 +87167,7 @@ MonoBehaviour:
   playerTransform: {fileID: 515889007}
   wheel1: {fileID: 4513548892671166405}
   wheel2: {fileID: 4513548892671166407}
-  movementSpeed: 4
+  movementSpeed: 1
   rotateSpeed: 1
   TurnSpeed: {x: 0, y: 50, z: 0}
   currentTargetPos: 0
