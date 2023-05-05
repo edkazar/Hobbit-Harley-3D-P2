@@ -8,7 +8,7 @@ public class MovementControllerScript : MonoBehaviour
 	[SerializeField] Transform wheel1;
 	[SerializeField] Transform wheel2;
 	
-	[SerializeField] float movementSpeed = 3.0f;
+	[SerializeField] public float movementSpeed = 1.0f;
 	[SerializeField] float rotateSpeed = 1.0f;
 	[SerializeField] private Vector3 TurnSpeed;
 

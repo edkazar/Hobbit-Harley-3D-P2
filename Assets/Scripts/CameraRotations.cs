@@ -16,6 +16,8 @@ public class CameraRotations : MonoBehaviour
 
     private int cameraMovementSpeed = 3;
 
+    public bool positionUpdated = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +26,7 @@ public class CameraRotations : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (positionUpdated)
         {
             if(currentCameraPos.position == cameraWalkingPos.position)
             {
@@ -34,6 +36,7 @@ public class CameraRotations : MonoBehaviour
             {
                 currentCameraPos = cameraWalkingPos;
             }
+            positionUpdated = false;
         }
 
         myCamera.transform.position = Vector3.MoveTowards(myCamera.transform.position, currentCameraPos.position, cameraMovementSpeed * Time.deltaTime);
