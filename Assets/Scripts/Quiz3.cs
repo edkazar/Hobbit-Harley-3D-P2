@@ -7,6 +7,7 @@ public class Quiz3 : MonoBehaviour
 	public GameObject A1, A2, A3, A4, A5;
 	public GameObject B1, B2, B3, B4, B5;
 	public GameObject Q3re;
+	public GameObject Q3;
 
 	Vector2 Pos1, Pos2, Pos3, Pos4, Pos5;
 
@@ -158,6 +159,7 @@ public class Quiz3 : MonoBehaviour
 
 			Debug.Log("Q3correct");
 			Q3re.SetActive(true);
+			Q3.SetActive(false);
 		}
 	}
 }

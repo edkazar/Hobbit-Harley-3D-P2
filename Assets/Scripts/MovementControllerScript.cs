@@ -16,6 +16,10 @@ public class MovementControllerScript : MonoBehaviour
 
     private List<Transform> WayPoints;
 	public ButtonManager buttonManager;
+    public Quiz3 q3;
+
+    public GameObject quiz3;
+	public GameObject quiz6;
 
 	public bool hasCrossed = false;
     public bool fulfilledTest = false;
@@ -112,7 +116,24 @@ public class MovementControllerScript : MonoBehaviour
     {
         if (playerTransform.position == WayPoints[currentTargetPos].position)
         {
-            currentTargetPos++;
+            
+            if (playerTransform.position == WayPoints[3].position )
+            {
+				Time.timeScale = 0f;
+				quiz3.SetActive(true);
+				Invoke(nameof(timeContinue), 2.0f);
+
+				
+			}
+			if (playerTransform.position == WayPoints[7].position)
+			{
+				Time.timeScale = 0f;
+				quiz6.SetActive(true);
+				Invoke(nameof(timeContinue), 2.0f);
+
+
+			}
+			currentTargetPos++;
             /*if (fulfilledTest)
             {
                 if (currentTargetPos < WayPoints.Count - 1)
@@ -154,4 +175,10 @@ public class MovementControllerScript : MonoBehaviour
     {
         return experienceDone;
     }
+
+    public void timeContinue()
+    {
+		Time.timeScale = 1f;
+		currentTargetPos++;
+	}
 }
