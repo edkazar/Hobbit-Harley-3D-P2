@@ -18,8 +18,12 @@ public class MovementControllerScript : MonoBehaviour
 	public ButtonManager buttonManager;
     public Quiz3 q3;
 
-    public GameObject quiz3;
+	public GameObject quiz2;
+	public GameObject quiz3;
+	public GameObject quiz4;
+	public GameObject quiz5;
 	public GameObject quiz6;
+	public GameObject quiz7;
 
 	public bool hasCrossed = false;
     public bool fulfilledTest = false;
@@ -116,8 +120,16 @@ public class MovementControllerScript : MonoBehaviour
     {
         if (playerTransform.position == WayPoints[currentTargetPos].position)
         {
-            
-            if (playerTransform.position == WayPoints[3].position )
+			if (playerTransform.position == WayPoints[2].position)
+			{
+				Time.timeScale = 0f;
+				quiz2.SetActive(true);
+				Invoke(nameof(timeContinue), 2.0f);
+
+
+			}
+
+			if (playerTransform.position == WayPoints[3].position )
             {
 				Time.timeScale = 0f;
 				quiz3.SetActive(true);
@@ -125,10 +137,35 @@ public class MovementControllerScript : MonoBehaviour
 
 				
 			}
+
+			if (playerTransform.position == WayPoints[4].position)
+			{
+				Time.timeScale = 0f;
+				quiz4.SetActive(true);
+				Invoke(nameof(timeContinue), 2.0f);
+
+
+			}
+			if (playerTransform.position == WayPoints[5].position)
+			{
+				Time.timeScale = 0f;
+				quiz5.SetActive(true);
+				Invoke(nameof(timeContinue), 2.0f);
+
+
+			}
 			if (playerTransform.position == WayPoints[7].position)
 			{
 				Time.timeScale = 0f;
 				quiz6.SetActive(true);
+				Invoke(nameof(timeContinue), 2.0f);
+
+
+			}
+			if (playerTransform.position == WayPoints[10].position)
+			{
+				Time.timeScale = 0f;
+				quiz7.SetActive(true);
 				Invoke(nameof(timeContinue), 2.0f);
 
 
@@ -179,6 +216,6 @@ public class MovementControllerScript : MonoBehaviour
     public void timeContinue()
     {
 		Time.timeScale = 1f;
-		currentTargetPos++;
+		//currentTargetPos++;
 	}
 }
