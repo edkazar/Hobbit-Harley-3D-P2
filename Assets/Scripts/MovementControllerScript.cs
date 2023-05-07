@@ -5,7 +5,7 @@ using UnityEngine;
 public class MovementControllerScript : MonoBehaviour
 {
     [SerializeField] Transform playerTransform;
-	[SerializeField] Transform wheel1;
+    [SerializeField] Transform wheel1;
 	[SerializeField] Transform wheel2;
 	
 	[SerializeField] public float movementSpeed = 1.0f;
@@ -16,7 +16,6 @@ public class MovementControllerScript : MonoBehaviour
 
     private List<Transform> WayPoints;
 	public ButtonManager buttonManager;
-    public Quiz3 q3;
 
 	public GameObject quiz2;
 	public GameObject quiz3;
@@ -32,13 +31,11 @@ public class MovementControllerScript : MonoBehaviour
     private UITaskController myUIController;
 
     private bool experienceDone = false;
+    private int degresPerSecond = 2;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        
-
 		WayPoints = new List<Transform>();
         WayPoints.Add(GameObject.Find("WayPoint2").transform);
         WayPoints.Add(GameObject.Find("WayPoint3").transform);
@@ -63,8 +60,11 @@ public class MovementControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Time.timeScale);
+        rotationRoutine();
+        
         //updateTurning();
-        if(!experienceDone)
+        if (!experienceDone)
         {
             playerTransform.position = Vector3.MoveTowards(playerTransform.position, WayPoints[currentTargetPos].position, movementSpeed * Time.deltaTime);
         }
@@ -74,7 +74,29 @@ public class MovementControllerScript : MonoBehaviour
 		updateTargetPosition();
     }
 
-    void updateTurning()
+    private void rotationRoutine()
+    {
+        //playerTransform.LookAt(WayPoints[currentTargetPos].position);
+        Vector3 directionFromMeToTarget = (playerTransform.position - WayPoints[currentTargetPos].position);
+        
+        directionFromMeToTarget.z = -1.0f * (directionFromMeToTarget.z);
+        directionFromMeToTarget.y = 0.0f; //remove y component, as we will rotate around axis
+        directionFromMeToTarget.x = Mathf.Abs(directionFromMeToTarget.x);
+        if (currentTargetPos < 6)
+        {
+            Mathf.Abs(directionFromMeToTarget.x);
+        }
+        else
+        {
+            directionFromMeToTarget.x = -1.0f * (directionFromMeToTarget.x);
+        }
+
+        Quaternion lookRotation = Quaternion.LookRotation(directionFromMeToTarget);
+
+        playerTransform.rotation = Quaternion.Lerp(playerTransform.rotation, lookRotation, Time.deltaTime * degresPerSecond);
+    }
+
+    /*void updateTurning()
     {
         
         if(playerTransform.position == WayPoints[0].position)
@@ -106,7 +128,7 @@ public class MovementControllerScript : MonoBehaviour
 			playerTransform.position = Vector3.MoveTowards(playerTransform.position, WayPoints[currentTargetPos].position, movementSpeed * Time.deltaTime);
 		}
        
-	}
+	}*/
     void updateWheelRotate()
     {
 		if (playerTransform.position != WayPoints[currentTargetPos].position)
@@ -120,6 +142,7 @@ public class MovementControllerScript : MonoBehaviour
     {
         if (playerTransform.position == WayPoints[currentTargetPos].position)
         {
+<<<<<<< Updated upstream
 			if (playerTransform.position == WayPoints[2].position)
 			{
 				Time.timeScale = 0f;
@@ -130,12 +153,15 @@ public class MovementControllerScript : MonoBehaviour
 			}
 
 			if (playerTransform.position == WayPoints[3].position )
+=======
+            currentTargetPos++;
+
+            if (playerTransform.position == WayPoints[3].position )
+>>>>>>> Stashed changes
             {
 				Time.timeScale = 0f;
 				quiz3.SetActive(true);
 				Invoke(nameof(timeContinue), 2.0f);
-
-				
 			}
 
 			if (playerTransform.position == WayPoints[4].position)
@@ -159,9 +185,8 @@ public class MovementControllerScript : MonoBehaviour
 				Time.timeScale = 0f;
 				quiz6.SetActive(true);
 				Invoke(nameof(timeContinue), 2.0f);
-
-
 			}
+<<<<<<< Updated upstream
 			if (playerTransform.position == WayPoints[10].position)
 			{
 				Time.timeScale = 0f;
@@ -171,6 +196,9 @@ public class MovementControllerScript : MonoBehaviour
 
 			}
 			currentTargetPos++;
+=======
+			
+>>>>>>> Stashed changes
             /*if (fulfilledTest)
             {
                 if (currentTargetPos < WayPoints.Count - 1)

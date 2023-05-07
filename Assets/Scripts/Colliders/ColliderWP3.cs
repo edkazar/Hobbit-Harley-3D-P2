@@ -8,6 +8,7 @@ public class ColliderWP3 : MonoBehaviour
     private MovementControllerScript myMovementController;
 
     private int rotate;
+    private float rotationSpeed = 2.0f;
 
     void Start()
     {
@@ -26,6 +27,12 @@ public class ColliderWP3 : MonoBehaviour
 
     private void Update()
     {
-
+        if(rotate > 0)
+        {
+            Debug.Log("HEre");
+            Player.transform.rotation = Quaternion.Lerp(Player.transform.rotation, Quaternion.AngleAxis(90, Vector3.up), rotationSpeed * Time.deltaTime);
+            rotate--;
+        }
+        
     }
 }

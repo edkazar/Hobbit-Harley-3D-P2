@@ -34,10 +34,10 @@ public class CarMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        carTransform.position = carTransform.position - new Vector3(0, 0, mySpeedController.currentMovementSpeed * Time.deltaTime/2);
+        carTransform.position = carTransform.position - new Vector3(mySpeedController.currentMovementSpeed * Time.deltaTime / 2, 0, 0);
         resetPosition();
 
-        if(mySpeedController.justCrossed)
+        /*if(mySpeedController.justCrossed)
         {
             checkCarPosition();
             if (mySpeedController.crossCounter <= 2)
@@ -48,7 +48,7 @@ public class CarMovementController : MonoBehaviour
             {
                 mySpeedController.justCrossed = false;
             }
-        }
+        }*/
     }
 
     void OnMouseOver()
@@ -73,15 +73,15 @@ public class CarMovementController : MonoBehaviour
 
     void resetPosition()
     {
-        float distanceZ = Mathf.Abs(initialPos.z - carTransform.position.z);
+        float distanceZ = Mathf.Abs(initialPos.x - carTransform.position.x);
 
         if (distanceZ >= carResetDistance)
         {
             carTransform.position = initialPos;
-            if (movementController.GetComponent<MovementControllerScript>().hasCrossed)
+            /*if (movementController.GetComponent<MovementControllerScript>().hasCrossed)
             {
                 carTransform.position = carTransform.position + new Vector3(0.0f, -30.0f, 0.0f);
-            }
+            }*/
         }
 
 

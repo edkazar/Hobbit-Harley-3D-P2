@@ -36,7 +36,7 @@ public class Quiz3 : MonoBehaviour
 		if (A1C && A2C && A3C && A4C && A5C)
 		{
 
-			Debug.Log("Q3correct");
+			//Debug.Log("Q3correct");
 		}
 	}
 
@@ -156,10 +156,9 @@ public class Quiz3 : MonoBehaviour
 	{
 		if (A1C && A2C && A3C && A4C && A5C)
 		{
-
-			Debug.Log("Q3correct");
-			Q3re.SetActive(true);
 			Q3.SetActive(false);
+			Debug.Log("Here!");
+			Q3re.SetActive(true);
 		}
 	}
 }

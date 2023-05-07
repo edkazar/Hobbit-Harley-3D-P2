@@ -66,7 +66,7 @@ public class CarSpeedController : MonoBehaviour
         wheelSpeed = currentMovementSpeed * 20;
         foreach(Transform hubcap in wheels)
         {
-            hubcap.RotateAround(hubcap.position, Vector3.left, wheelSpeed * Time.deltaTime);
+            hubcap.RotateAround(hubcap.position, Vector3.forward, wheelSpeed * Time.deltaTime);
         }
 
     }
