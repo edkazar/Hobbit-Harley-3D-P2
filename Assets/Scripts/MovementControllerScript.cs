@@ -142,7 +142,6 @@ public class MovementControllerScript : MonoBehaviour
     {
         if (playerTransform.position == WayPoints[currentTargetPos].position)
         {
-<<<<<<< Updated upstream
 			if (playerTransform.position == WayPoints[2].position)
 			{
 				Time.timeScale = 0f;
@@ -153,11 +152,9 @@ public class MovementControllerScript : MonoBehaviour
 			}
 
 			if (playerTransform.position == WayPoints[3].position )
-=======
             currentTargetPos++;
 
             if (playerTransform.position == WayPoints[3].position )
->>>>>>> Stashed changes
             {
 				Time.timeScale = 0f;
 				quiz3.SetActive(true);
@@ -186,7 +183,6 @@ public class MovementControllerScript : MonoBehaviour
 				quiz6.SetActive(true);
 				Invoke(nameof(timeContinue), 2.0f);
 			}
-<<<<<<< Updated upstream
 			if (playerTransform.position == WayPoints[10].position)
 			{
 				Time.timeScale = 0f;
@@ -196,9 +192,6 @@ public class MovementControllerScript : MonoBehaviour
 
 			}
 			currentTargetPos++;
-=======
-			
->>>>>>> Stashed changes
             /*if (fulfilledTest)
             {
                 if (currentTargetPos < WayPoints.Count - 1)
